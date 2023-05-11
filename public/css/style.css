@@ -28,3 +28,8 @@ a {
 a:hover {
     color: #c0d6ec;
 }
+
+.image-with-text {
+    display: flex;
+    align-items: center;
+}

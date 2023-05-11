@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('threads', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('board_id');
-            $table->string('author');
-            $table->integer('author_id');
-            $table->string('subject');
-            $table->string('body');
+            $table->string('email');
+            $table->string('name');
+            $table->string('avatar');
+            $table->string('website');
+            $table->string('password');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('threads');
+        Schema::dropIfExists('accounts');
     }
 };

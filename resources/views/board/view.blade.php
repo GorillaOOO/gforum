@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>{{ $board->name }} - {{ env('SITE_NAME') }}</title>
@@ -13,7 +13,7 @@
     @foreach ($threads as $thread)
     <div class="index-board">
         <h2>{{ $thread->subject }}</h2>
-        Started by <b>{{ $thread->author }}</b> at {{ $thread->created_at }}
+        Started by <a href="{{ route('account.view', ['id' => $thread->author_id]) }}"><b>{{ $thread->author }}</b></a> at {{ $thread->created_at }}
     </div>
     @endforeach
 
