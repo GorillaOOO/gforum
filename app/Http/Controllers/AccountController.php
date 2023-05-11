@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Account;
+use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
@@ -20,6 +21,11 @@ class AccountController extends Controller
 
     public function authAccount(Request $request)
     {
-        return $request;
+        $reqPass = $request->password;
+        $accPass = Account::where('email', $request->email)->pluck("password")->first();
+
+        if (Hash::check($reqPass, $accPass)) {
+            // placehold
+        }
     }
 }
