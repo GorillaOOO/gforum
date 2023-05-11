@@ -7,3 +7,5 @@ GForum (derived from GorillaForum) is a Laravel forum package with simplicity in
 -   [ ] Basic posting, threads and replies, _et al_.
 -   [ ] Image uploading & perceptual hash banning.
 -   [ ] Account registration, avatars, signatures etc.
+-   [ ] A decent API that allows people to build up their own clients, or use cURL for bots, etc.
+-   [ ] RSS feeds would be nice, as well.
