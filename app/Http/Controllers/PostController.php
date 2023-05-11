@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Thread;
 use Illuminate\Support\Facades\Session;
+use App\Models\Account;
 
 class PostController extends Controller
 {
@@ -19,5 +20,18 @@ class PostController extends Controller
         $thread->board_id = $request->board_id;
 
         $thread->save();
+    }
+
+    public function getThread($bid, $tid)
+    {
+        $thread = Thread::where('id', $tid)->first();
+        $threadauthor = Account::where('id', $thread->author_id)->first();
+        $board = $bid;
+
+        return view('thread.view', [
+            'thread' => $thread,
+            'board' => $board,
+            'threadauthor' => $threadauthor
+        ]);
     }
 }

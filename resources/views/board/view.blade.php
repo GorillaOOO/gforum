@@ -19,10 +19,12 @@
     @endphp
 
     @foreach ($threads as $thread)
-    <div class="index-board">
-        <h2>{{ $thread->subject }}</h2>
-        Started by <a href="{{ route('account.view', ['id' => $thread->author_id]) }}"><b>{{ $thread->author }}</b></a> at {{ $thread->created_at }}
-    </div>
+    <a href="{{ route('thread.view', ['bid' => $board->id, 'tid' => $thread->id]) }}">
+        <div class="index-board">
+            <h2>{{ $thread->subject }}</h2>
+            Started by <a href="{{ route('account.view', ['id' => $thread->author_id]) }}"><b>{{ $thread->author }}</b></a> at {{ $thread->created_at }}
+        </div>
+    </a>
     @endforeach
 
 </body>
