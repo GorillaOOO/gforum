@@ -34,7 +34,7 @@ a:hover {
     align-items: center;
 }
 
-input {
+input, textarea {
     padding: 2px;
     border-style: solid;
     border-color: #5E81AC;
@@ -42,7 +42,7 @@ input {
 
 }
 
-input:hover {
+input:hover, textarea:hover {
     background-color: #dde4f0;
     border-color: #81A1C1;
 }

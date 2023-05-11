@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\PostController;
+use App\Http\Middleware\UserLogin;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,6 @@ Route::get('/board/{id}', [ForumController::class, 'getBoard'])->name('board.vie
 Route::get('/account/{id}', [AccountController::class, 'getAccount'])->name('account.view');
 Route::view('/login/', 'account.login')->name('account.login');
 Route::post('/login/auth', [AccountController::class, 'authAccount'])->name('account.auth');
+
+// Threads, posts & moderation
+Route::post('/thread/create', [PostController::class, 'makeThread'])->name('thread.create')->middleware(UserLogin::class);

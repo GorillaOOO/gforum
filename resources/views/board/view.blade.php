@@ -10,6 +10,14 @@
 <body>
     <h1>{{ $board->name }} - {{ env('SITE_NAME') }}</h1>
     <a href="{{ route('board.index') }}"><i>Return to index</i></a>
+    <br />
+    @php
+    if (Session::has('user_email')) {
+    echo "<h3>New Thread</h3>";
+    echo view('form.make_thread', ['board' => $board]);
+    }
+    @endphp
+
     @foreach ($threads as $thread)
     <div class="index-board">
         <h2>{{ $thread->subject }}</h2>
