@@ -21,3 +21,5 @@ Route::get('/board/{id}', [ForumController::class, 'getBoard'])->name('board.vie
 
 // Accounts etc
 Route::get('/account/{id}', [AccountController::class, 'getAccount'])->name('account.view');
+Route::view('/login/', 'account.login')->name('account.login');
+Route::post('/login/auth', [AccountController::class, 'authAccount'])->name('account.auth');

@@ -11,6 +11,15 @@ class AccountController extends Controller
     {
         $account = Account::where('id', $id)->first();
 
+        if ($account == null) {
+            return view('404');
+        }
+
         return view('account.view', ['account' => $account]);
+    }
+
+    public function authAccount(Request $request)
+    {
+        return $request;
     }
 }
