@@ -1,0 +1,30 @@
+body {
+    background-color: #2E3440;
+    color: #ECEFF4;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 75px;
+    margin-right: 75px;
+    font-size: 1.5em;
+}
+
+.index-board {
+    background-color: #3B4252;
+    padding: 10px;
+    transition: 0.3s;
+    border-style: solid;
+    border-color: #5E81AC;
+}
+
+.index-board:hover {
+    background-color: #4C566A;
+    border-color: #81A1C1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c0d6ec;
+}

@@ -14,4 +14,5 @@ use App\Http\Controllers\ForumController;
 |
 */
 
-Route::get('/', [ForumController::class, 'getBoardIndex']);
+Route::get('/', [ForumController::class, 'getBoardIndex'])->name('board.index');
+Route::get('/board/{id}', [ForumController::class, 'getBoard'])->name('board.view');
