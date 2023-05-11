@@ -9,7 +9,13 @@
 
 <body>
     <h1>Board Index - {{ env('SITE_NAME') }}</h1>
-    <a href="{{ route('account.login') }}">Login to {{ env('SITE_NAME') }}</a>
+    @php
+    if (Session::has('user_id')) {
+    echo "logged in as <b>" . Session::get('user_id') . "</b>";
+    } else {
+    echo "<a href=" . route('account.login') . ">Login to " . env('SITE_NAME') . "</a>";
+    }
+    @endphp
 
     @foreach ($boards as $board)
     <a href="{{ route('board.view', ['id' => $board->id]) }}">

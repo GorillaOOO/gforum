@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 
 class AccountController extends Controller
 {
@@ -25,7 +27,9 @@ class AccountController extends Controller
         $accPass = Account::where('email', $request->email)->pluck("password")->first();
 
         if (Hash::check($reqPass, $accPass)) {
-            // placehold
+            Session::put('user_id', $request->email);
         }
+
+        return redirect(route('board.index'));
     }
 }
