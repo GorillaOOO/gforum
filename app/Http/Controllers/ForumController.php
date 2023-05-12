@@ -18,7 +18,7 @@ class ForumController extends Controller
     {
         // Get info for a particular board [board view]
         $board = Board::where('id', $id)->first();
-        $threads = Thread::where('board_id', $id)->get();
+        $threads = Thread::where('board_id', $id)->orderBy('id', 'desc')->get();
         return view('board.view', ['board' => $board, 'threads' => $threads]);
     }
 }

@@ -16,10 +16,12 @@ class PostController extends Controller
         $thread->subject = $request->subject;
         $thread->body = $request->body;
         $thread->author = Session::get('user_name');
-        $thread->author_id = 1; // I will fix this
+        $thread->author_id = Session::get('user_id');
         $thread->board_id = $request->board_id;
 
         $thread->save();
+
+        return redirect(route('board.view', ['id' => $request->board_id]));
     }
 
     public function getThread($bid, $tid)
