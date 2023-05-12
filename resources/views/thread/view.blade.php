@@ -16,10 +16,19 @@
             <h1>{{ $thread->subject }}</h1>
             by <b><a href="{{ route('account.view', ['id' => $thread->author_id]) }}">{{ $thread->author }}</a></b>
             <br />
-            <img src="{{ $threadauthor->avatar }}" alt="OP's Avatar" height=200 />
+            <img src="{{ $threadauthor->avatar }}" alt="OP's Avatar" height=135px />
         </center>
         <pre style="font-family: inherit;">{{ $thread->body }}</pre>
     </div>
+    @php
+    echo view('thread.replies', ['replies' => $replies]);
+    @endphp
+    @php
+    if (Session::has('user_email')) {
+    echo "<h3>New Reply</h3>";
+    echo view('form.make_reply', ['thread' => $thread, 'board' => $board]);
+    }
+    @endphp
 
 
 </body>

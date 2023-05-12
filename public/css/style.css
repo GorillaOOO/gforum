@@ -46,3 +46,7 @@ input:hover, textarea:hover {
     background-color: #dde4f0;
     border-color: #81A1C1;
 }
+
+hr {
+    border-color: #81A1C1;
+}

@@ -28,4 +28,5 @@ Route::post('/login/auth', [AccountController::class, 'authAccount'])->name('acc
 
 // Threads, posts & moderation
 Route::post('/thread/create', [PostController::class, 'makeThread'])->name('thread.create')->middleware(UserLogin::class);
+Route::post('/reply/create', [PostController::class, 'makeReply'])->name('thread.reply')->middleware(UserLogin::class);
 Route::get('/board/{bid}/{tid}', [PostController::class, 'getThread'])->name('thread.view');
