@@ -21,4 +21,11 @@ class ForumController extends Controller
         $threads = Thread::where('board_id', $id)->orderBy('id', 'desc')->get();
         return view('board.view', ['board' => $board, 'threads' => $threads]);
     }
+
+    public function buildRSSFeed($bid)
+    {
+        $board = Board::where('id', $bid)->first();
+        $threads = Thread::where('board_id', $bid)->orderBy('id', 'desc')->get();
+        return view('board.rss', ['board' => $board, 'threads' => $threads]);
+    }
 }
